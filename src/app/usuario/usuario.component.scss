@@ -1,0 +1,21 @@
+.button-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button {
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: black;
+  background-color: #d9d9d9;
+  padding: .5rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  margin-bottom: 10px; /* Ajuste conforme necessário para o espaçamento entre os botões */
+}
+
+.button:hover {
+  outline: 1px solid darkgray;
+}

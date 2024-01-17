@@ -8,5 +8,8 @@ import { Component } from '@angular/core';
   styleUrl: './usuario.component.scss'
 })
 export class UsuarioComponent {
+  Cadastrar(){
+    
+  }
 
 }
