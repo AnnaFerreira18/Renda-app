@@ -14,9 +14,10 @@ export class MediaComponent {
 
   listPeople: boolean = false;
   listMedia: boolean = false;
-  del: boolean = false;
   listaP : any[] = [];
-  displayedColumns: string[] = ['position', 'nome', 'raca', 'renda'];
+  listaM : any[] = []
+  colunaLista: string[] = ['position', 'nome', 'raca', 'renda'];
+  colunaMedia: string[] = ['raca', 'Media'];
 
   constructor(private mediaService : MediaService ){}
 
@@ -27,17 +28,17 @@ export class MediaComponent {
       if(p){
         this.listaP = p.sort((a: { id: number; } , b: { id: number; }) => a.id - b.id);
         this.listPeople = true;
-
       }
     })
   }
   Media(){
     console.log("Media criada")
-    this.mediaService.calcularMediaRenda().subscribe((p)=>{
-      console.log(p)
+    this.mediaService.calcularMediaRenda().subscribe((m)=>{
+      console.log(m)
+      if(m){
+        this.listaM = m;
+        this.listMedia = true;
+      }
     })
-  }
-  Deletar(){
-    console.log("Delete criado")
   }
 }

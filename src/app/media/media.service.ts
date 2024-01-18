@@ -12,14 +12,14 @@ export class MediaService {
 constructor(private http: HttpClient) { }
 
 obterTodosUsuarios(): Observable<any> {
-  return this.http.get(`${this.apiUrl}/Media/Listar`);
+  return this.http.get(`${this.apiUrl}/Media/listar`);
 }
 
 calcularMediaRenda(): Observable<any> {
-  return this.http.get(`${this.apiUrl}/Media/Calcular_media`);
+  return this.http.get(`${this.apiUrl}/Media/calcularMedia`);
 }
 
 deletarUsuario(id: number): Observable<any> {
-  return this.http.delete(`${this.apiUrl}/Media/Deletar?id=${id}`);
+  return this.http.delete(`${this.apiUrl}/Media/deletar?id=${id}`);
 }
 }
