@@ -11,14 +11,14 @@ export class UsuarioService {
 
 constructor(private http: HttpClient) { }
 criarUsuario(usuario: any): Observable<any> {
-  return this.http.post(`${this.apiUrl}/Cidadaos/NovoUsuario`, usuario);
+  return this.http.post(`${this.apiUrl}/Cidadaos/novoUsuario`, usuario);
 }
 
 obterUsuarioPorId(id: number): Observable<any> {
-  return this.http.get(`${this.apiUrl}/Cidadaos/Busca por ID?id=${id}`);
+  return this.http.get(`${this.apiUrl}/Cidadaos/buscaPorID?id=${id}`);
 }
 
 atualizarUsuario(id: number, usuario: any): Observable<any> {
-  return this.http.put(`${this.apiUrl}/Cidadaos/Update?id=${id}`, usuario);
+  return this.http.put(`${this.apiUrl}/Cidadaos/update?id=${id}`, usuario);
 }
 }

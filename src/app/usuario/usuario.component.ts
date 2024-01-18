@@ -8,8 +8,19 @@ import { Component } from '@angular/core';
   styleUrl: './usuario.component.scss'
 })
 export class UsuarioComponent {
-  Cadastrar(){
-    
-  }
 
+  del: boolean = false;
+
+  Cadastrar(){
+    console.log("Cadastro criado")
+  }
+  Buscar(){
+    console.log("Busca criada")
+  }
+  Atualizar(){
+    console.log("Atualizar criado")
+  }
+  Deletar(){
+    console.log("Delete criado para Id:")
+  }
 }
