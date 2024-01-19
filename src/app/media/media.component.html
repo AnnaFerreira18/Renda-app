@@ -1,6 +1,7 @@
 <div class="button-container">
   <button type="button" class="button" (click)="listar()">Lista de pessoas</button>
   <button type="button" class="button" (click)="Media()">Media de renda</button>
+</div>
 @if(listPeople){
   <table mat-table [dataSource]="listaP" class="mat-elevation-z8 demo-table">
 
@@ -38,12 +39,11 @@
     </ng-container>
 
     <ng-container matColumnDef="Media">
-      <th mat-header-cell *matHeaderCellDef> Media </th>
+      <th mat-header-cell *matHeaderCellDef> Média </th>
       <td mat-cell *matCellDef="let element"> {{element.mediaRendaValor}} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="colunaMedia"></tr>
     <tr mat-row *matRowDef="let row; columns: colunaMedia;"></tr>
   </table>
-
 }

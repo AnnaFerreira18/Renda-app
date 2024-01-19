@@ -28,6 +28,7 @@ export class MediaComponent {
       if(p){
         this.listaP = p.sort((a: { id: number; } , b: { id: number; }) => a.id - b.id);
         this.listPeople = true;
+        this.listMedia = false
       }
     })
   }
@@ -38,7 +39,9 @@ export class MediaComponent {
       if(m){
         this.listaM = m;
         this.listMedia = true;
+        this.listPeople = false;
       }
     })
   }
 }
+
