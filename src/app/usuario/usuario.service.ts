@@ -21,4 +21,8 @@ obterUsuarioPorId(id: number): Observable<any> {
 atualizarUsuario(id: number, usuario: any): Observable<any> {
   return this.http.put(`${this.apiUrl}/Cidadaos/update?id=${id}`, usuario);
 }
+
+deletarUsuario(id: number): Observable<any> {
+  return this.http.delete(`${this.apiUrl}/Media/deletar?id=${id}`);
+}
 }

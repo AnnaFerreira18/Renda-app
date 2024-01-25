@@ -1,15 +1,18 @@
-<mat-toolbar color="primary">
+<mat-toolbar [ngStyle]="{}" color="primary">
   <mat-toolbar-row class="toolbar-row">
-    <span class="center-text larger-font margin-down">Media</span>
+    <span class="center-text larger-font margin-down"></span>
   </mat-toolbar-row>
 </mat-toolbar>
 
+<div class="main-content">
+  <h2 class="content-title">Média de úsuarios</h2>
+
 <div class="button-container">
-  <button type="button" class="button" (click)="showMediaComponent()">Media </button>
-  <button type="button" class="button" (click)="showUsuarioComponent()">Usuario </button>
+  <button type="button" class="button" (click)="showUsuarioComponent()">USUARIOS </button>
+  <button type="button" class="button" (click)="showMediaComponent()">LISTAR </button>
 </div>
 
-<section class="sec">
+<section class="sec" [ngStyle]="{}">
   <ng-container *ngIf="currentComponent === 'media'">
     <app-media></app-media>
   </ng-container>
@@ -17,6 +20,4 @@
   <ng-container *ngIf="currentComponent === 'usuario'">
     <app-usuario></app-usuario>
   </ng-container>
-
-
 </section>

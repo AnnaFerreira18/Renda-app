@@ -18,8 +18,4 @@ obterTodosUsuarios(): Observable<any> {
 calcularMediaRenda(): Observable<any> {
   return this.http.get(`${this.apiUrl}/Media/calcularMedia`);
 }
-
-deletarUsuario(id: number): Observable<any> {
-  return this.http.delete(`${this.apiUrl}/Media/deletar?id=${id}`);
-}
 }

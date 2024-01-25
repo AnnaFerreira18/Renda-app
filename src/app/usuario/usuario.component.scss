@@ -1,21 +1,29 @@
 .button-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px; /* Adiciona espaço abaixo dos botões */
+  margin: 0 auto; /* Centraliza a tabela */
+  margin-top: 10px; /* Adiciona espaço entre os botões e a tabela */
 }
 
 .button {
   border: none;
   outline: none;
-  border-radius: 5px;
-  color: black;
-  background-color: #d9d9d9;
-  padding: .5rem;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  background-color: #c11313;
+  padding: .75rem 1.5rem; /* Ajuste conforme necessário para aumentar o tamanho dos botões */
   cursor: pointer;
   text-transform: uppercase;
-  margin-bottom: 10px; /* Ajuste conforme necessário para o espaçamento entre os botões */
 }
 
 .button:hover {
   outline: 1px solid darkgray;
+}
+
+table {
+  width: 100%;
+  margin: 0 auto; /* Centraliza a tabela */
+  margin-top: 20px; /* Adiciona espaço entre os botões e a tabela */
 }
