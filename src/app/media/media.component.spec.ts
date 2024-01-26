@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { MediaComponent } from './media.component';
 
 describe('MediaComponent', () => {
@@ -11,7 +10,7 @@ describe('MediaComponent', () => {
       imports: [MediaComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(MediaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { MediaComponent } from "./media/media.component";
-
+import { Cadastro_usuarioComponent } from './cadastro_usuario/cadastro_usuario.component';
 
 
 @Component({
@@ -19,11 +19,11 @@ export class AppComponent {
 
   currentComponent: string = '';
 
-  showMediaComponent() {
+  MediaComponent() {
     this.currentComponent = 'media';
   }
 
-  showUsuarioComponent() {
+  UsuarioComponent() {
     this.currentComponent = 'usuario';
   }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UsuarioService } from './usuario.service';
 
 @Component({
   selector: 'app-usuario',
@@ -9,11 +10,10 @@ import { Component } from '@angular/core';
 })
 export class UsuarioComponent {
 
+  constructor(private UsuarioService : UsuarioService ){}
+
   del: boolean = false;
 
-  Cadastrar(){
-    console.log("Cadastro criado")
-  }
   Buscar(){
     console.log("Busca criada")
   }
