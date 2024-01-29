@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { MediaComponent } from "./media/media.component";
-import { Cadastro_usuarioComponent } from './cadastro_usuario/cadastro_usuario.component';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -17,14 +17,15 @@ import { Cadastro_usuarioComponent } from './cadastro_usuario/cadastro_usuario.c
 export class AppComponent {
   title = 'renda-app';
 
-  currentComponent: string = '';
+  constructor(private router: Router) {}
 
-  MediaComponent() {
-    this.currentComponent = 'media';
+  componentLista: string = '';
+
+  irParaUsuario() {
+    this.router.navigate(['/usuario']);
   }
 
-  UsuarioComponent() {
-    this.currentComponent = 'usuario';
+  irParaMedia() {
+    this.componentLista = 'media';
   }
-
 }

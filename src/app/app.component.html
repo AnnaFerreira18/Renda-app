@@ -8,17 +8,15 @@
   <h2 class="content-title">Média de úsuarios</h2>
 
 <div class="button-container">
-  <button type="button" class="button" routerLink="/usuarios">USUÁRIOS</button>
-  <button type="button" class="button" (click)="MediaComponent()">LISTAR </button>
+  <button type="button" class="button" (click)="irParaUsuario()">PAGINA</button>
+  <button type="button" class="button" (click)=" irParaMedia()">LISTAR </button>
 </div>
 
 
-<section class="sec" [ngStyle]="{}">
-  <ng-container *ngIf="currentComponent === 'media'">
+  <ng-container *ngIf="componentLista === 'media'">
     <app-media></app-media>
   </ng-container>
 
-  <ng-container *ngIf="currentComponent === 'usuario'">
-    <app-usuario></app-usuario>
-  </ng-container>
-</section>
+  <router-outlet></router-outlet>
+
+
