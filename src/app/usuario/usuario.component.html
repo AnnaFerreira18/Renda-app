@@ -1,8 +1,24 @@
 
 <div class="button-container">
-  <button type="button" class="button" (click)="Cadastrar()">Cadastrar</button>
   <button type="button" class="button" (click)="Buscar()">Buscar</button>
   <button type="button" class="button" (click)="Atualizar()">Editar</button>
   <button type="button" class="button" (click)="Deletar()">Deletar</button>
 </div>
+<div>
 
+  <button type="button" class="button" (click)="CadastrarUsuario()">Cadastrar</button>
+<div *ngIf="mostrarFormulario">
+  <form (ngSubmit)="CadastrarUsuario()">
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" required>
+
+      <label for="raca">Raça:</label>
+      <input type="text" id="raca" name="raca" [(ngModel)]="usuario.raca" required>
+
+      <label for="renda">Renda:</label>
+      <input type="number" id="renda" name="renda" [(ngModel)]="usuario.renda" required>
+
+      <button type="submit">Cadastrar Usuário</button>
+    </form>
+  </div>
+</div>

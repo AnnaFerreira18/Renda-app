@@ -26,6 +26,7 @@ export class AppComponent {
   }
 
   irParaMedia() {
-    this.componentLista = 'media';
-  }
+    // this.componentLista = 'media';
+    this.router.navigate(['/media']);
+}
 }
