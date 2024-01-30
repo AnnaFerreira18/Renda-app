@@ -12,63 +12,38 @@ import { FormsModule } from '@angular/forms';
 export class UsuarioComponent {
 
   usuario: any = {};
+  id: number = 1;
   mostrarFormulario: boolean = false;
-
-  userId: number = 1;
+  del: boolean = false;
 
   constructor(private UsuarioService : UsuarioService ){}
 
-  del: boolean = false;
-
   CadastrarUsuario() {
-    const novoUsuario = {
-      nome: 'John Doe',
-      raca: 'Alguma Raça',
-      renda: 50000
-    };
-       this.mostrarFormulario = true;
-       this.UsuarioService.criarUsuario(novoUsuario).subscribe((c)=>{
-        console.log(c)
+       this.UsuarioService.criarUsuario(this.usuario).subscribe((usuario)=>{
+        console.log(usuario)
+        this.mostrarFormulario = true;
       })
   }
   Buscar() {
-    this.UsuarioService.obterUsuarioPorId(this.userId).subscribe(
-      (response) => {
-        this.usuario = response;
-        console.log('Usuário encontrado:', this.usuario);
-      },
-      (error) => {
-        console.error('Erro ao obter usuário por ID:', error);
-      }
-    );
+    this.UsuarioService.obterUsuarioPorId(this.id).subscribe((usuarioid)=>{
+      console.log(usuarioid);
+      this.usuario = usuarioid;
+    })
   }
+
   Atualizar() {
-    // Certifique-se de ter o ID e as informações atualizadas do usuário
     const usuarioAtualizado = {
-      // ... propriedades atualizadas do usuário
+
     };
 
-    this.UsuarioService.atualizarUsuario(this.userId, usuarioAtualizado).subscribe(
-      (response) => {
-        console.log('Usuário atualizado com sucesso:', response);
-      },
-      (error) => {
-        console.error('Erro ao atualizar usuário:', error);
-      }
+    this.UsuarioService.atualizarUsuario(this.id, this.usuario).subscribe(
     );
   }
 
-  // Função para deletar um usuário
   Deletar() {
-    this.UsuarioService.deletarUsuario(this.userId).subscribe(
-      (response) => {
-        console.log('Usuário deletado com sucesso:', response);
-        // Limpar dados do usuário após a exclusão, se necessário
-        this.usuario = {};
-      },
-      (error) => {
-        console.error('Erro ao deletar usuário:', error);
-      }
-    );
+    this.UsuarioService.deletarUsuario(this.id).subscribe((usuario)=>{
+      console.log(usuario)
+        this.usuario = {}
+    })
   }
 }

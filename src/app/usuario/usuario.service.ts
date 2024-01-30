@@ -23,6 +23,6 @@ atualizarUsuario(id: number, usuario: any): Observable<any> {
 }
 
 deletarUsuario(id: number): Observable<any> {
-  return this.http.delete(`${this.apiUrl}/Media/deletar?id=${id}`);
+  return this.http.delete(`${this.apiUrl}/Cidadaos/deletar?id=${id}`);
 }
 }
