@@ -33,17 +33,20 @@ export class UsuarioComponent {
 
   Atualizar() {
     const usuarioAtualizado = {
-
+      nome: this.usuario.nome,
+      raca: this.usuario.raca,
+      renda: this.usuario.renda
     };
 
-    this.UsuarioService.atualizarUsuario(this.id, this.usuario).subscribe(
-    );
+      this.UsuarioService.atualizarUsuario(this.id, usuarioAtualizado).subscribe(
+        (a)=>{
+          console.log("executado",a);
+        })
   }
 
   Deletar() {
-    this.UsuarioService.deletarUsuario(this.id).subscribe((usuario)=>{
-      console.log(usuario)
-        this.usuario = {}
+    this.UsuarioService.deletarUsuario(this.id).subscribe(()=>{
+      console.log("executado")
     })
   }
 }

@@ -5,35 +5,35 @@
       <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" required><br/>
 
       <label for="raca">Raça:</label>
-      <input type="text" id="raca" name="raca" [(ngModel)]="usuario.raca" required><br/>
-
+      <input type="text" id="raca" name="raca" [(ngModel)]="usuario.raca" required>
       <label for="renda">Renda:</label>
-      <input type="number" id="renda" name="renda" [(ngModel)]="usuario.renda" required><br/>
+      <input type="number" id="renda" name="renda" [(ngModel)]="usuario.renda" required>
 
       <button type="submit">Cadastrar Usuário</button>
     </form>
   </div>
 
 
-<div>
-<div class="button-container">
-  <button type="button" class="button" (click)="Atualizar()">Editar</button>
-  <button type="button" class="button" (click)="Deletar()">Deletar</button>
-</div>
-</div>
+<form ngIf="mostrarFormulario">
+  <label for="id">ID do Usuário:</label>
+  <input type="number" id="id" [(ngModel)]="id" name="id" />
 
-<div>
-  <label for="userId">ID do Usuário:</label>
-  <input type="number" id="id" name="id" [(ngModel)]="id" required>
-  <button type="button" class="button" (click)="Buscar()">Buscar</button>
-</div>
-<div ngIf="usuario">
-  <h2>Dados do Usuário</h2>
-  <ul>
-    <li><strong>ID:</strong> {{ usuario.id }}</li>
-    <li><strong>Nome:</strong> {{ usuario.nome }}</li>
-    <li><strong>Raça:</strong> {{ usuario.raca }}</li>
-    <li><strong>Renda:</strong> {{ usuario.renda }}</li>
-  </ul>
-</div>
+  <label for="nome">Nome:</label>
+  <input type="text" id="nome" [(ngModel)]="usuario.nome" name="nome" />
+
+  <label for="raca">Raça:</label>
+  <input type="text" id="raca" [(ngModel)]="usuario.raca" name="raca" />
+
+  <label for="renda">Renda:</label>
+  <input type="text" id="renda" [(ngModel)]="usuario.renda" name="renda" />
+
+  <button type="button" (click)="Atualizar()">Atualizar Usuário</button>
+</form>
+
+<label for="id">ID do Usuário:</label>
+<input type="number" id="id" [(ngModel)]="id" name="id" />
+
+<!-- Adicione um botão para acionar a função Deletar -->
+<button type="button" (click)="Deletar()">Deletar Usuário</button>
+
 
