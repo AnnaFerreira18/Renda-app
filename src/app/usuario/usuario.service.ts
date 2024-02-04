@@ -25,7 +25,7 @@ atualizarUsuario(id: number, usuario: any): Observable<any> {
 deletarUsuario(id: number): Observable<any> {
   return this.http.delete(`${this.apiUrl}/Cidadaos/deletar?id=${id}`);
 }
-obterTodosUsuarios(): Observable<any> {
+obterUsuarios(): Observable<any> {
   return this.http.get(`${this.apiUrl}/Media/listar`);
 }
 }

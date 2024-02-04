@@ -1,109 +1,42 @@
-.mat-toolbar {
-  background-color: #a3a3a3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-bottom: 3px solid black;
-  padding-bottom: 8px;
+/* Estilo para a barra de ferramentas */
+mat-toolbar {
+  background-color: #2196F3; /* Cor de fundo azul */
+  color: #fff; /* Cor do texto branco */
 }
 
-.toolbar-row {
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-}
-.main-content {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  margin: 40px auto;
-  max-width: 1000px;
-}
-
+/* Estilo para o título da página */
 .content-title {
-  font-family: 'Playfair Display', serif;
-  font-size: 48px;
-  margin-bottom: 50px;
-  text-align: center;
-  width: 100%; /* Garante que o título ocupe a largura total disponível */
-  color: #000000;
+  color: #333; /* Cor do texto escuro */
+  text-align: center; /* Centraliza o texto */
 }
 
-.center-text {
-  text-align: center;
-  width: 100%;
+/* Estilo para o contêiner principal */
+.main-content {
+  padding: 20px; /* Adiciona um espaço de preenchimento interno de 20px */
+  text-align: center; /* Centraliza o conteúdo */
 }
 
-.larger-font {
-  font-size: 50px;
-  color: rgb(0, 0, 0);
-  text-align: center; /* Adiciona centralização ao texto */
-}
-
-.margin-down {
-  margin-top: 10px;
-}
-
-.sec {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  padding: 1rem;
-}
-
+/* Estilo para os botões */
 .button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 50px auto;
-  text-align: center;
+  margin-top: 20px; /* Adiciona um espaço acima dos botões */
+  text-align: center; /* Centraliza os botões */
 }
 
 .button {
-  margin: 0 21px;
-  width: 40%;
-  height: 50%;
-  padding: 20px 50px;
-  font-size: 22px;
-  cursor: pointer;
-  background-color: #000000;
-  color: white;
-  border: none;
-  border-radius: 10px;
-  outline: none;
+  background-color: #4CAF50; /* Cor de fundo verde */
+  color: #fff; /* Cor do texto branco */
+  padding: 10px 20px; /* Adiciona espaço interno ao redor do texto */
+  margin-right: 10px; /* Adiciona um espaço à direita entre os botões */
+  border: none; /* Remove a borda do botão */
+  cursor: pointer; /* Adiciona um cursor de apontador ao passar o mouse */
+  border-radius: 5px; /* Adiciona bordas arredondadas ao botão */
 }
 
 .button:hover {
-  background-color: #75787b;
+  background-color: #45a049; /* Cor de fundo mais escura ao passar o mouse */
 }
 
-.margin-down {
-  margin-bottom: 60px;
-}
-
-.sec {
-  margin: 0;
-}
-
-/* Adicione estilos específicos para cada componente se necessário */
-app-usuario {
-  margin: 20px auto;
-  max-width: 800px;
-  background-color: white;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-app-media {
-  margin-top: 20px;
-  background-color: white;
-  border: 1px solid #ccc;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+/* Estilo para a área onde os componentes são exibidos */
+router-outlet {
+  margin-top: 20px; /* Adiciona um espaço acima do conteúdo exibido */
 }

@@ -1,39 +1,92 @@
-
-<div ngIf="mostrarFormulario">
+@if (mostrarFormulario) {
+  <div class="container mt-4">
   <form (ngSubmit)="CadastrarUsuario()">
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" required><br/>
+    <div class="mb-3">
+      <label for="nome" class="form-label">Nome:</label>
+      <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" required>
+    </div>
 
-      <label for="raca">Raça:</label>
-      <input type="text" id="raca" name="raca" [(ngModel)]="usuario.raca" required>
-      <label for="renda">Renda:</label>
-      <input type="number" id="renda" name="renda" [(ngModel)]="usuario.renda" required>
-
-      <button type="submit">Cadastrar Usuário</button>
-    </form>
+<div class="mb-3">
+    <label for="raca" class="form-label">Raça:</label>
+    <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control">
+      <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
+    </select>
   </div>
 
+    <div class="mb-3">
+      <label for="renda" class="form-label">Renda:</label>
+      <input type="number" id="renda" name="renda" [(ngModel)]="usuario.renda" class="form-control" required>
+    </div>
 
-<form ngIf="mostrarFormulario">
-  <label for="id">ID do Usuário:</label>
-  <input type="number" id="id" [(ngModel)]="id" name="id" />
+    <button type="submit" class="btn btn-primary">Cadastrar Usuário</button>
+  </form>
+</div>
+}
 
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" [(ngModel)]="usuario.nome" name="nome" />
 
-  <label for="raca">Raça:</label>
-  <input type="text" id="raca" [(ngModel)]="usuario.raca" name="raca" />
+@if (mostrarFormulario) {
+  <form class="container mt-4">
+  <div class="mb-3">
+    <label for="id" class="form-label">ID do Usuário:</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" class="form-control">
+  </div>
 
-  <label for="renda">Renda:</label>
-  <input type="text" id="renda" [(ngModel)]="usuario.renda" name="renda" />
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome:</label>
+    <input type="text" id="nome" [(ngModel)]="usuario.nome" name="nome" class="form-control">
+  </div>
 
-  <button type="button" (click)="Atualizar()">Atualizar Usuário</button>
+  <div class="mb-3">
+    <label for="raca" class="form-label">Raça:</label>
+    <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control">
+      <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label for="renda" class="form-label">Renda:</label>
+    <input type="text" id="renda" [(ngModel)]="usuario.renda" name="renda" class="form-control">
+  </div>
+
+  <button type="button" (click)="Atualizar()" class="btn btn-warning">Atualizar Usuário</button>
 </form>
+}
 
-<label for="id">ID do Usuário:</label>
-<input type="number" id="id" [(ngModel)]="id" name="id" />
+<!-- Formulário de Deleção -->
+<div class="container mt-4">
+  <div class="mb-3">
+    <label for="id" class="form-label">ID do Usuário:</label>
+    <input type="number" id="id" [(ngModel)]="id" name="id" class="form-control">
+  </div>
 
-<!-- Adicione um botão para acionar a função Deletar -->
-<button type="button" (click)="Deletar()">Deletar Usuário</button>
+  <!-- Adicione um botão para acionar a função Deletar -->
+  <button type="button" (click)="Deletar()" class="btn btn-danger">Deletar Usuário</button>
+</div>
 
+<!-- usuario.component.html -->
+
+<!-- Adicione esta tabela à sua página com estilos Bootstrap -->
+<!-- Adicione esta tabela à sua página com estilos Bootstrap -->
+<div class="container mt-4">
+  <h3>Lista de Usuários:</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Raça</th>
+        <th>Renda</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Utilize *ngFor para percorrer a lista e exibir os dados na tabela -->
+      <tr *ngFor="let usuario of lista">
+        <td>{{ usuario.id }}</td>
+        <td>{{ usuario.nome }}</td>
+        <td>{{ usuario.raca }}</td>
+        <td>{{ usuario.renda }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 

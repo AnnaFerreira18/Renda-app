@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [CommonModule, RouterOutlet, MatToolbarModule, MediaComponent, UsuarioComponent]
+    imports: [CommonModule, RouterOutlet, MatToolbarModule, MediaComponent, UsuarioComponent],
 })
 export class AppComponent {
   title = 'renda-app';
@@ -22,11 +22,11 @@ export class AppComponent {
   componentLista: string = '';
 
   irParaUsuario() {
+    console.log('Navegando para Usuário');
     this.router.navigate(['/usuario']);
   }
 
   irParaMedia() {
-    // this.componentLista = 'media';
     this.router.navigate(['/media']);
 }
 }
