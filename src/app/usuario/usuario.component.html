@@ -1,81 +1,48 @@
-@if (mostrarFormulario) {
-  <div class="container mt-4">
-  <form (ngSubmit)="CadastrarUsuario()">
-    <div class="mb-3">
-      <label for="nome" class="form-label">Nome:</label>
-      <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" required>
+<!-- Seção de Cadastro/Edição -->
+<div *ngIf="mostrarFormulario" class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      {{ usuario.id ? 'Editar Usuário' : 'Cadastrar Usuário' }}
     </div>
+    <div class="card-body">
+      <!-- Formulário de Cadastro/Edição -->
+      <form (ngSubmit)="CadastrarUsuario()">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" required>
+        </div>
 
-<div class="mb-3">
-    <label for="raca" class="form-label">Raça:</label>
-    <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control">
-      <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
-    </select>
-  </div>
+        <div class="mb-3">
+          <label for="raca" class="form-label">Raça:</label>
+          <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control">
+            <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
+          </select>
+        </div>
 
-    <div class="mb-3">
-      <label for="renda" class="form-label">Renda:</label>
-      <input type="number" id="renda" name="renda" [(ngModel)]="usuario.renda" class="form-control" required>
+        <div class="mb-3">
+          <label for="renda" class="form-label">Renda:</label>
+          <input type="text" id="renda" name="renda" [(ngModel)]="usuario.renda" class="form-control" currencyMask="R$" [options]="{ allowNegative: false, align: 'left' }">
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          {{ usuario.id ? 'Salvar Alterações' : 'Cadastrar Usuário' }}
+        </button>
+      </form>
     </div>
-
-    <button type="submit" class="btn btn-primary">Cadastrar Usuário</button>
-  </form>
-</div>
-}
-
-
-@if (mostrarFormulario) {
-  <form class="container mt-4">
-  <div class="mb-3">
-    <label for="id" class="form-label">ID do Usuário:</label>
-    <input type="number" id="id" [(ngModel)]="id" name="id" class="form-control">
   </div>
-
-  <div class="mb-3">
-    <label for="nome" class="form-label">Nome:</label>
-    <input type="text" id="nome" [(ngModel)]="usuario.nome" name="nome" class="form-control">
-  </div>
-
-  <div class="mb-3">
-    <label for="raca" class="form-label">Raça:</label>
-    <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control">
-      <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
-    </select>
-  </div>
-
-  <div class="mb-3">
-    <label for="renda" class="form-label">Renda:</label>
-    <input type="text" id="renda" [(ngModel)]="usuario.renda" name="renda" class="form-control">
-  </div>
-
-  <button type="button" (click)="Atualizar()" class="btn btn-warning">Atualizar Usuário</button>
-</form>
-}
-
-<!-- Formulário de Deleção -->
-<div class="container mt-4">
-  <div class="mb-3">
-    <label for="id" class="form-label">ID do Usuário:</label>
-    <input type="number" id="id" [(ngModel)]="id" name="id" class="form-control">
-  </div>
-
-  <!-- Adicione um botão para acionar a função Deletar -->
-  <button type="button" (click)="Deletar()" class="btn btn-danger">Deletar Usuário</button>
 </div>
 
-<!-- usuario.component.html -->
-
-<!-- Adicione esta tabela à sua página com estilos Bootstrap -->
-<!-- Adicione esta tabela à sua página com estilos Bootstrap -->
+<!-- Seção da Tabela -->
 <div class="container mt-4">
   <h3>Lista de Usuários:</h3>
-  <table class="table table-striped">
-    <thead>
+  <table class="table table-bordered table-hover">
+    <thead class="table-primary">
       <tr>
         <th>ID</th>
         <th>Nome</th>
         <th>Raça</th>
         <th>Renda</th>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody>
@@ -85,8 +52,11 @@
         <td>{{ usuario.nome }}</td>
         <td>{{ usuario.raca }}</td>
         <td>{{ usuario.renda }}</td>
+        <td>
+          <button (click)="editarUsuario(usuario)" class="btn btn-primary btn-sm me-1">Editar</button>
+          <button type="button" (click)="deletarUsuario(usuarioParaDeletar)" class="btn btn-danger btn-sm">Deletar</button>
+        </td>
       </tr>
     </tbody>
   </table>
 </div>
-

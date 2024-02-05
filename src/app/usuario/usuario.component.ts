@@ -2,11 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UsuarioService } from './usuario.service';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { CurrencyMaskModule } from "ng2-currency-mask";
 
 @Component({
   selector: 'app-usuario',
   standalone: true,
-  imports: [ FormsModule, CommonModule],
+  imports: [ FormsModule, CommonModule, CurrencyMaskModule ],
   templateUrl: './usuario.component.html',
   styleUrl: './usuario.component.scss'
 })
@@ -17,10 +19,12 @@ export class UsuarioComponent {
   id: number = 1;
   mostrarFormulario: boolean = true;
   del: boolean = false;
+  confirmandoDelecao: boolean = false;
+  usuarioParaDeletar: any;
 
   racas: string[] = ['Branca', 'Parda', 'Negra', 'Indígena', 'Amarela'];
 
-  constructor(private UsuarioService : UsuarioService ){this.ListarTodos();}
+  constructor(private router: Router, private UsuarioService : UsuarioService ){this.ListarTodos();}
 
   CadastrarUsuario() {
 
@@ -48,17 +52,39 @@ export class UsuarioComponent {
           console.log("executado",a);
         })
   }
-  Deletar() {
-    this.UsuarioService.deletarUsuario(this.id).subscribe(()=>{
-      console.log("executado")
-    })
+  editarUsuario(usuario: any) {
+    // Adapte isso conforme necessário com a rota específica para edição
+    this.router.navigate([`/usuario-editar/${usuario.id}`]);
+  }
+
+
+  // Deletar() {
+  //   this.UsuarioService.deletarUsuario(this.id).subscribe(()=>{
+  //     console.log("executado")
+  //   })
+  // }
+
+  // confirmarDeletarUsuario(usuario: any) {
+  //   this.usuarioParaDeletar = usuario;
+  //   this.confirmandoDelecao = true;
+  // }
+
+  // cancelarDelecao() {
+  //   this.confirmandoDelecao = false;
+  // }
+
+  deletarUsuario(usuario: any) {
+    this.UsuarioService.deletarUsuario(usuario.id).subscribe(() => {
+      console.log("Usuário deletado com sucesso");
+      this.confirmandoDelecao = false;
+      // Atualize sua lista ou faça outras ações necessárias após a exclusão
+    });
   }
 
   ListarTodos() {
     this.UsuarioService.obterUsuarios().subscribe((usuarios) => {
       console.log(usuarios);
       if (usuarios) {
-        // Ordena a lista por ID antes de exibir na tabela
         this.lista = usuarios.sort((a: { id: number }, b: { id: number }) => a.id - b.id);
       }
     });
