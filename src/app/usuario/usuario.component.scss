@@ -1,29 +1,36 @@
-.button-container {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-bottom: 20px; /* Adiciona espaço abaixo dos botões */
-  margin: 0 auto; /* Centraliza a tabela */
-  margin-top: 10px; /* Adiciona espaço entre os botões e a tabela */
+/* Estilos para a Seção de Cadastro/Edição */
+.container-form {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-.button {
-  border: none;
-  outline: none;
-  border-radius: 8px;
-  color: rgb(255, 255, 255);
-  background-color: #c11313;
-  padding: .75rem 1.5rem; /* Ajuste conforme necessário para aumentar o tamanho dos botões */
-  cursor: pointer;
-  text-transform: uppercase;
+.card-header {
+  background-color: #007bff;
+  color: #fff;
 }
 
-.button:hover {
-  outline: 1px solid darkgray;
+.card-body {
+  padding: 20px;
 }
 
-table {
-  width: 100%;
-  margin: 0 auto; /* Centraliza a tabela */
-  margin-top: 20px; /* Adiciona espaço entre os botões e a tabela */
+/* Estilos para a Tabela */
+.container-table {
+  margin-top: 20px;
 }
+
+.table-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+/* Botões de Ação */
+.btn-action {
+  margin-right: 5px;
+}
+
+/* Estilos para os Inputs no Formulário */
+.form-control {
+  margin-bottom: 10px;
+}
+
+/* Adicione mais estilos conforme necessário */
