@@ -4,9 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { CurrencyMaskModule } from "ng2-currency-mask";
-
-
-
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-usuario-editar',
@@ -23,7 +21,8 @@ export class UsuarioEditarComponent {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private location: Location
   ) {
     this.route.params.subscribe(params => {
       this.id = +params['id']; // O sinal de + converte a string para número
@@ -32,18 +31,8 @@ export class UsuarioEditarComponent {
   }
 
   carregarUsuario() {
-    // Carregar informações do usuário com base no ID
     this.usuarioService.obterUsuarioPorId(this.id).subscribe(usuario => {
       this.usuario = usuario;
-    });
-  }
-
-  atualizarUsuario() {
-    // Lógica para atualizar o usuário usando o serviço
-    this.usuarioService.atualizarUsuario(this.id, this.usuario).subscribe(() => {
-      console.log('Usuário atualizado com sucesso');
-      // Redirecionar de volta para a página de detalhes do usuário ou para onde for necessário
-      this.router.navigate(['/usuario', this.id]);
     });
   }
 
@@ -52,5 +41,9 @@ export class UsuarioEditarComponent {
       console.log('Usuário atualizado com sucesso');
       this.router.navigate(['/usuario', this.id]);
     });
+  }
+
+  voltar(): void {
+    this.location.back();
   }
 }

@@ -53,16 +53,15 @@ export class UsuarioComponent {
         })
   }
   editarUsuario(usuario: any) {
-    // Adapte isso conforme necessário com a rota específica para edição
     this.router.navigate([`/usuario-editar/${usuario.id}`]);
   }
 
 
-  // Deletar() {
-  //   this.UsuarioService.deletarUsuario(this.id).subscribe(()=>{
-  //     console.log("executado")
-  //   })
-  // }
+   Deletar() {
+   this.UsuarioService.deletarUsuario(this.id).subscribe(()=>{
+       console.log("executado")
+     })
+   }
 
   // confirmarDeletarUsuario(usuario: any) {
   //   this.usuarioParaDeletar = usuario;
@@ -76,8 +75,6 @@ export class UsuarioComponent {
   deletarUsuario(usuario: any) {
     this.UsuarioService.deletarUsuario(usuario.id).subscribe(() => {
       console.log("Usuário deletado com sucesso");
-      this.confirmandoDelecao = false;
-      // Atualize sua lista ou faça outras ações necessárias após a exclusão
     });
   }
 

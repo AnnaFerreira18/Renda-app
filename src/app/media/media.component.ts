@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { MediaService } from './media.service';
 import {MatTableModule} from '@angular/material/table';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-media',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, FormsModule, CommonModule],
   providers:[],
   templateUrl: './media.component.html',
   styleUrl: './media.component.scss'

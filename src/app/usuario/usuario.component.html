@@ -1,11 +1,9 @@
-<!-- Seção de Cadastro/Edição -->
 <div *ngIf="mostrarFormulario" class="container mt-4">
   <div class="card">
     <div class="card-header">
       {{ usuario.id ? 'Editar Usuário' : 'Cadastrar Usuário' }}
     </div>
     <div class="card-body">
-      <!-- Formulário de Cadastro/Edição -->
       <form (ngSubmit)="CadastrarUsuario()">
         <div class="mb-3">
           <label for="nome" class="form-label">Nome:</label>
@@ -13,7 +11,7 @@
         </div>
 
         <div class="mb-3">
-          <label for="raca" class="form-label">Raça:</label>
+          <label for="raca" class="form-label">Cor:</label>
           <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control">
             <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
           </select>
@@ -32,7 +30,6 @@
   </div>
 </div>
 
-<!-- Seção da Tabela -->
 <div class="container mt-4">
   <h3>Lista de Usuários:</h3>
   <table class="table table-bordered table-hover">
@@ -40,23 +37,23 @@
       <tr>
         <th>ID</th>
         <th>Nome</th>
-        <th>Raça</th>
+        <th>Cor</th>
         <th>Renda</th>
         <th>Ações</th>
       </tr>
     </thead>
     <tbody>
-      <!-- Utilize *ngFor para percorrer a lista e exibir os dados na tabela -->
       <tr *ngFor="let usuario of lista">
         <td>{{ usuario.id }}</td>
         <td>{{ usuario.nome }}</td>
         <td>{{ usuario.raca }}</td>
-        <td>{{ usuario.renda }}</td>
+        <td>R$ {{ usuario.renda.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) }}</td>
         <td>
           <button (click)="editarUsuario(usuario)" class="btn btn-primary btn-sm me-1">Editar</button>
-          <button type="button" (click)="deletarUsuario(usuarioParaDeletar)" class="btn btn-danger btn-sm">Deletar</button>
+          <button type="button" (click)="deletarUsuario(usuario)" class="btn btn-danger btn-sm">Deletar</button>
         </td>
       </tr>
     </tbody>
   </table>
 </div>
+

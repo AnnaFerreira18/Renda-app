@@ -11,7 +11,7 @@
   </div>
 
   <div class="mb-3">
-    <label for="raca" class="form-label">Raça:</label>
+    <label for="raca" class="form-label">Cor:</label>
     <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control" required>
       <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
     </select>
@@ -22,7 +22,7 @@
     <input type="text" id="renda" name="renda" [(ngModel)]="usuario.renda" class="form-control" currencyMask="R$" [options]="{ allowNegative: false, align: 'left' }">
   </div>
 
-  <!-- Adicione outros campos conforme necessário -->
-
   <button type="button" (click)="salvarEdicao()" class="btn btn-primary">Salvar Alterações</button>
+    <button type="button" (click)="voltar()" class="btn btn-secondary me-2">Voltar</button>
+
 </div>
