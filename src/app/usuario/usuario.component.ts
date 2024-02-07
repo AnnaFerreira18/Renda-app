@@ -18,9 +18,10 @@ export class UsuarioComponent {
   lista : any[] = [];
   id: number = 1;
   mostrarFormulario: boolean = true;
-  del: boolean = false;
   confirmandoDelecao: boolean = false;
   usuarioParaDeletar: any;
+  usuariosFiltrados: any[] = [];
+  termoPesquisa: string = '';
 
   racas: string[] = ['Branca', 'Parda', 'Negra', 'Indígena', 'Amarela'];
 
@@ -52,6 +53,7 @@ export class UsuarioComponent {
           console.log("executado",a);
         })
   }
+
   editarUsuario(usuario: any) {
     this.router.navigate([`/usuario-editar/${usuario.id}`]);
   }
@@ -80,10 +82,21 @@ export class UsuarioComponent {
 
   ListarTodos() {
     this.UsuarioService.obterUsuarios().subscribe((usuarios) => {
-      console.log(usuarios);
       if (usuarios) {
         this.lista = usuarios.sort((a: { id: number }, b: { id: number }) => a.id - b.id);
+        this.aplicarFiltro();
       }
     });
   }
+
+  pesquisar() {
+    this.aplicarFiltro(); // Aplica o filtro com base no texto de pesquisa
+  }
+
+  aplicarFiltro() {
+    this.usuariosFiltrados = this.lista.filter(usuario =>
+      usuario.nome.toLowerCase().includes(this.termoPesquisa.toLowerCase())
+    );
+  }
+
 }
