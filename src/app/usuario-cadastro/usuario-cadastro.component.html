@@ -1,0 +1,32 @@
+<div *ngIf="mostrarFormulario" class="container mt-4">
+  <div class="card">
+    <div class="card-header">
+      {{ usuario.id ? 'Editar Usuário' : 'Cadastrar Usuário' }}
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="CadastrarUsuario()">
+        <div class="mb-3">
+          <label for="nome" class="form-label">Nome:</label>
+          <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="raca" class="form-label">Cor:</label>
+          <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control">
+            <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="renda" class="form-label">Renda:</label>
+          <input type="text" id="renda" name="renda" [(ngModel)]="usuario.renda" class="form-control" currencyMask="R$" [options]="{ allowNegative: false, align: 'left' }">
+        </div>
+
+        <button type="submit" class="btn btn-primary">
+          {{ usuario.id ? 'Salvar Alterações' : 'Cadastrar Usuário' }}
+        </button>
+        <button type="button" (click)="voltar()" class="btn btn-secondary me-2">Voltar</button>
+      </form>
+    </div>
+  </div>
+</div>

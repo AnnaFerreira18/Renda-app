@@ -15,7 +15,7 @@ import { Location } from '@angular/common';
 })
 export class UsuarioEditarComponent {
   usuario: any = {};
-  id: number =0;
+  id: number = 0;
   racas: string[] = ['Branca', 'Parda', 'Negra', 'Indígena', 'Amarela'];
 
   constructor(

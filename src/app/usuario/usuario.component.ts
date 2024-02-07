@@ -27,13 +27,7 @@ export class UsuarioComponent {
 
   constructor(private router: Router, private UsuarioService : UsuarioService ){this.ListarTodos();}
 
-  CadastrarUsuario() {
 
-       this.UsuarioService.criarUsuario(this.usuario).subscribe((usuario)=>{
-        console.log(usuario)
-        this.mostrarFormulario = true;
-      })
-  }
   Buscar() {
     this.UsuarioService.obterUsuarioPorId(this.id).subscribe((usuarioid)=>{
       console.log(usuarioid);
@@ -56,6 +50,10 @@ export class UsuarioComponent {
 
   editarUsuario(usuario: any) {
     this.router.navigate([`/usuario-editar/${usuario.id}`]);
+  }
+
+  criar() {
+    this.router.navigate(['/usuario-cadastro']);
   }
 
 

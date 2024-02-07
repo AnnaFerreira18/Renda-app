@@ -1,39 +1,11 @@
-<div *ngIf="mostrarFormulario" class="container mt-4">
-  <div class="card">
-    <div class="card-header">
-      {{ usuario.id ? 'Editar Usuário' : 'Cadastrar Usuário' }}
-    </div>
-    <div class="card-body">
-      <form (ngSubmit)="CadastrarUsuario()">
-        <div class="mb-3">
-          <label for="nome" class="form-label">Nome:</label>
-          <input type="text" id="nome" name="nome" [(ngModel)]="usuario.nome" class="form-control" required>
-        </div>
-
-        <div class="mb-3">
-          <label for="raca" class="form-label">Cor:</label>
-          <select id="raca" name="raca" [(ngModel)]="usuario.raca" class="form-control">
-            <option *ngFor="let raca of racas" [value]="raca">{{ raca }}</option>
-          </select>
-        </div>
-
-        <div class="mb-3">
-          <label for="renda" class="form-label">Renda:</label>
-          <input type="text" id="renda" name="renda" [(ngModel)]="usuario.renda" class="form-control" currencyMask="R$" [options]="{ allowNegative: false, align: 'left' }">
-        </div>
-
-        <button type="submit" class="btn btn-primary">
-          {{ usuario.id ? 'Salvar Alterações' : 'Cadastrar Usuário' }}
-        </button>
-      </form>
-    </div>
-  </div>
+<div class="container mt-4">
+  <button (click)="criar()" class="btn btn-primary btn-sm me-1">Cadastrar usuário</button>
 </div>
 
 <div class="container mt-4">
   <h3>Pesquisar Usuários:</h3>
   <div class="input-group mb-3">
-    <input type="text" class="form-control" placeholder="Pesquisar por nome" [(ngModel)]="termoPesquisa" (input)="pesquisar()">
+    <input type="text" class="form-control" placeholder="Pesquisar por nome" [(ngModel)]="termoPesquisa" (input)="pesquisar()" style="margin-right: 10px;">
     <button class="btn btn-outline-secondary" type="button" (click)="pesquisar()">Pesquisar</button>
   </div>
 </div>
@@ -64,4 +36,5 @@
     </tbody>
   </table>
 </div>
+
 

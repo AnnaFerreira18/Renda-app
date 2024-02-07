@@ -6,6 +6,8 @@ import { UsuarioComponent } from './usuario/usuario.component';
 import { MediaComponent } from "./media/media.component";
 import { Router } from '@angular/router';
 import { CurrencyMaskModule } from "ng2-currency-mask";
+import { MediaService } from './media/media.service';
+
 
 
 @Component({
@@ -18,7 +20,7 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 export class AppComponent {
   title = 'renda-app';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private MediaService: MediaService ) {}
 
   componentLista: string = '';
 
@@ -29,6 +31,7 @@ export class AppComponent {
 
   irParaMedia() {
     this.router.navigate(['/media']);
+
 }
 }
 

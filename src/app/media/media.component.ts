@@ -21,7 +21,7 @@ export class MediaComponent {
   colunaLista: string[] = ['position', 'nome', 'raca', 'renda'];
   colunaMedia: string[] = ['raca', 'Media'];
 
-  constructor(private mediaService : MediaService ){}
+  constructor(private mediaService : MediaService ){this.Media(); }
 
   listar(){
     console.log("Lista criada")

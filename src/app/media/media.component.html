@@ -1,6 +1,5 @@
 <div class="button-container">
   <!-- <button type="button" class="button" (click)="listar()">Lista de pessoas</button> -->
-  <button type="button" class="button" (click)="Media()">Media de renda</button>
 </div>
 @if(listPeople){
   <table mat-table [dataSource]="listaP" class="mat-elevation-z8 demo-table">
@@ -31,7 +30,7 @@
 
 }
 @if(listMedia){
-  <div class="table-responsive">
+  <div class="container mt-4">
     <table class="table table-bordered table-striped table-hover">
       <thead class="thead-dark">
         <tr>
