@@ -81,7 +81,8 @@ export class UsuarioComponent {
   ListarTodos() {
     this.UsuarioService.obterUsuarios().subscribe((usuarios) => {
       if (usuarios) {
-        this.lista = usuarios.sort((a: { id: number }, b: { id: number }) => a.id - b.id);
+        this.lista = usuarios;
+        //.sort((a: { id: number }, b: { id: number }) => a.id - b.id);
         this.aplicarFiltro();
       }
     });
