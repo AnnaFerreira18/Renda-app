@@ -15,7 +15,7 @@
   <table class="table table-bordered table-hover">
     <thead class="table-primary">
       <tr>
-        <th>ID</th>
+
         <th>Nome</th>
         <th>Cor</th>
         <th>Renda</th>
@@ -24,7 +24,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let usuario of usuariosFiltrados">
-        <td>{{ usuario.id }}</td>
+      
         <td>{{ usuario.nome }}</td>
         <td>{{ usuario.raca }}</td>
         <td>R$ {{ usuario.renda.toLocaleString('pt-BR', { minimumFractionDigits: 2 }) }}</td>
